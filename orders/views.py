@@ -36,7 +36,7 @@ def edit(request, order_id):
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             if form.save():
-                return redirect('/', messages.success(request, 'Order was successfully updated.', 'alert-success'))
+                return redirect('/', messages.success(request, 'Reservation was successfully updated.', 'alert-success'))
             else:
                 return redirect('/', messages.error(request, 'Data is not saved', 'alert-danger'))
         else:
@@ -49,7 +49,7 @@ def edit(request, order_id):
 def destroy(request, order_id):
     order = Order.objects.get(id=order_id)
     order.delete()
-    return redirect('/', messages.success(request, 'Order was successfully deleted.', 'alert-success'))
+    return redirect('/', messages.success(request, 'Reservation was successfully deleted.', 'alert-success'))
 
 
 
